@@ -1,1 +1,1 @@
-# SIEMXDR Lab 2026
+# SIEM/XDR Lab 2026

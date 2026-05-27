@@ -1,0 +1,25 @@
+<!-- Decoders customizados - Blue Team Lab 2026 -->
+
+<!-- Decoder: Falha de autenticacao SSH -->
+<decoder name="custom-ssh-failed">
+  <parent>sshd</parent>
+  <prematch>Failed password for</prematch>
+  <regex>Failed password for (\S+) from (\d+\.\d+\.\d+\.\d+) port (\d+)</regex>
+  <order>user, srcip, srcport</order>
+</decoder>
+
+<!-- Decoder: Usuario invalido SSH -->
+<decoder name="custom-ssh-invalid-user">
+  <parent>sshd</parent>
+  <prematch>Invalid user</prematch>
+  <regex>Invalid user (\S+) from (\d+\.\d+\.\d+\.\d+)</regex>
+  <order>user, srcip</order>
+</decoder>
+
+<!-- Decoder: Login SSH bem-sucedido -->
+<decoder name="custom-ssh-success">
+  <parent>sshd</parent>
+  <prematch>Accepted password for|Accepted publickey for</prematch>
+  <regex>Accepted \S+ for (\S+) from (\d+\.\d+\.\d+\.\d+)</regex>
+  <order>user, srcip</order>
+</decoder>

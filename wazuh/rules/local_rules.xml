@@ -1,0 +1,65 @@
+<!-- Rules customizadas - Blue Team Lab 2026 -->
+
+<group name="custom,authentication,brute_force">
+
+  <rule id="100001" level="10" frequency="5" timeframe="120">
+    <if_matched_sid>5760</if_matched_sid>
+    <same_source_ip/>
+    <description>SSH Brute Force: 5+ falhas em 120s do mesmo IP</description>
+    <group>authentication_failures,brute_force</group>
+    <mitre>
+      <id>T1110</id>
+      <id>T1110.001</id>
+    </mitre>
+  </rule>
+
+  <rule id="100002" level="14" timeframe="300">
+    <if_matched_sid>100001</if_matched_sid>
+    <if_sid>5715</if_sid>
+    <same_source_ip/>
+    <description>CRITICO: Login SSH apos tentativas de brute force</description>
+    <group>authentication_success,brute_force,attack</group>
+    <mitre>
+      <id>T1110</id>
+      <id>T1078</id>
+    </mitre>
+  </rule>
+
+</group>
+
+<group name="custom,lateral_movement,windows">
+
+  <rule id="100010" level="12">
+    <if_group>windows</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)(psexec|psexesvc)</field>
+    <description>Lateral Movement: Execucao de PsExec detectada</description>
+    <group>lateral_movement,suspicious_process</group>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+  </rule>
+
+  <rule id="100020" level="15">
+    <if_group>sysmon</if_group>
+    <field name="win.system.eventID">^10$</field>
+    <field name="win.eventdata.targetImage" type="pcre2">(?i)lsass\.exe</field>
+    <description>CRITICO: Acesso ao LSASS detectado - possivel Mimikatz</description>
+    <group>credential_access,mimikatz,high_severity</group>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+  </rule>
+
+  <rule id="100030" level="11">
+    <if_group>sysmon</if_group>
+    <field name="win.system.eventID">^1$</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)-[Ee][Nn][Cc]|FromBase64String|encodedcommand</field>
+    <description>PowerShell com comando codificado detectado - possivel evasao</description>
+    <group>defense_evasion,powershell</group>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1027</id>
+    </mitre>
+  </rule>
+
+</group>

@@ -131,8 +131,8 @@ Plataforma de simulação de ataques Red Team. Utilizado com ferramentas como Nm
 |------|-----------|--------|
 | Fase 0 | Arquitetura e topologia de rede | ✅ Concluída |
 | Fase 1 | Wazuh + agentes + Sysmon + AD | ✅ Concluída |
-| Fase 2 | Decoders e rules customizados | 🔄 Em andamento |
-| Fase 3 | Cenários de ataque (MITRE ATT&CK) | 🔄 Em andamento |
+| Fase 2 | Decoders e rules customizados | ✅ Concluída |
+| Fase 3 | Cenários de ataque (MITRE ATT&CK) | ✅ Concluída |
 | Fase 4 | Dashboards de monitoramento | ⏳ Pendente |
 | Fase 5 | Automação Python + Webhooks | ⏳ Pendente |
 | Cloud | Integração AWS / Azure | ⏳ Roadmap |

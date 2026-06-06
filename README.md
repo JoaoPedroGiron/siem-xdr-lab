@@ -134,8 +134,8 @@ Plataforma de simulação de ataques Red Team. Utilizado com ferramentas como Nm
 | Fase 2 | Decoders e rules customizados | ✅ Concluída |
 | Fase 3 | Cenários de ataque (MITRE ATT&CK) | ✅ Concluída |
 | Fase 4 | Dashboards de monitoramento | ✅ Concluída |
-| Fase 5 | Automação Python + Webhooks | ⏳ Pendente |
-| Cloud | Integração AWS / Azure | ⏳ Roadmap |
+| Fase 5 | Automação Python + Webhooks | ✅ Concluída |
+
 
 ---
 
@@ -148,7 +148,7 @@ siem-xdr-lab/
 ├── wazuh/          → Decoders e rules customizados
 ├── sysmon/         → sysmonconfig.xml (Olaf Hartong)
 ├── scripts/        → Hardening CIS e automação Python
-└── cloud/          → Próximos passos: AWS / Azure
+
 ```
 
 ---

@@ -1,0 +1,11 @@
+wazuh:
+  host: "SEU_IP_WAZUH"
+  port: 55000
+  username: "wazuh-wui"
+  password: "SUA_SENHA"
+  min_alert_level: 10
+  poll_interval: 30
+  verify_ssl: false
+
+notifications:
+  slack_webhook_url: "https://hooks.slack.com/services/SEU_WEBHOOK"

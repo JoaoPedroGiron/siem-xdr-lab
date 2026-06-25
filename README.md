@@ -80,7 +80,7 @@ O projeto foi implementado com as seguintes tecnologias:
 [Ubuntu Server]   --Syslog + Auditd-------->    [Wazuh Manager :514]
 [Wazuh Manager]   --Indexação-------------->    [Wazuh Indexer :9200]
 [Wazuh Indexer]   --Visualização---------->     [Wazuh Dashboard :443]
-[Wazuh API]       --Webhook--------------->     [Discord / Telegram]
+[Wazuh API]       --Webhook--------------->     [Slack]
 ```
 
 ---
